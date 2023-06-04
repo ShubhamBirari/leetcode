@@ -21,6 +21,7 @@
 // Output: [0,1]
 
 
+// Approach 1 - With O(n2) complexity
 var twoSum = function(nums, target) {
     let a=[]
     for(let i=0; i<nums.length; i++){
@@ -30,4 +31,24 @@ var twoSum = function(nums, target) {
             }
         }
     }
+};
+
+
+// Approach 2 - With O(n) complexity
+var twoSum = function(nums, target) {
+    let nums=[7,7,11,15,2]
+    let target=9
+
+    let map = new Map()
+
+    for(let i=0; i<nums.length; i++){
+        let diff = target - nums[i]
+        if(map.has(diff)){
+            return [map.get(diff), i]
+        }
+        else{
+            map.set(nums[i], i)
+        }
+    }
+    return []
 };
